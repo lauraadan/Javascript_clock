@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="fonts/Poppins-Light.ttf">
+	<meta name="author" content="Laura Adán">
+	<meta name="revised" content="Abril 2021">
+	<title>09- Reloj en Javascript </title>
+</head>
+<body>
+
+	<div class="reloj">
+		<div class="horas">
+			<div class="hora" id="hora"></div>
+		</div>
+		<div class="minutos">
+			<div class="min" id="min"></div>
+		</div>
+		<div class="segundos">
+			<div class="seg" id="seg"></div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		const deg = 6;
+		const hr = document.querySelector('#hora');
+		const mn = document.querySelector('#min');
+		const sc = document.querySelector('#seg');
+
+		setInterval(() => {
+
+		let day = new Date();
+		let hh = day.getHours() * 30;
+		let mm = day.getMinutes() * deg;
+		let ss = day.getSeconds() * deg;
+
+		hr.style.transform = `rotateZ(${(hh)+(mm/12)}deg)`;
+		mn.style.transform = `rotateZ(${mm}deg)`;
+		sc.style.transform = `rotateZ(${ss}deg)`;
+
+	})
+	</script>
+</body>
+</html>
